@@ -2,7 +2,6 @@ from board import Board
 
 board = Board()
 
-
 def play_move():
     if board.current_player == 'X':
         print('next move for X')
@@ -20,7 +19,10 @@ while not board.game_has_ended:
     play_move()
     board.change_player()
     board.check_draw()
-    board.check_winner()
+    if (not board.game_has_ended):
+        board.check_winner()
+    else:
+        board.print_board()
 
 print('game ended.')
 input('key stroke')

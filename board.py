@@ -3,6 +3,10 @@ class Board:
     game_has_ended = False
     current_player = 'X'
 
+    winning_lines = [(0,1,2),(3,4,5),(6,7,8),
+                     (0,3,6),(1,4,7),(2,5,8),
+                     (0,4,8),(2,4,6)]
+
     def print_board(self):
         print(self.board[0], '|', self.board[1], '|', self.board[2])
         print(self.board[3], '|', self.board[4], '|', self.board[5])
@@ -21,63 +25,17 @@ class Board:
             print('game has ended in a draw!')
         return
 
-    def check_column(self):
-        if self.board[0] == self.board[3] == self.board[6]:
-            winner = self.board[0]
-            self.game_has_ended = True
-        elif self.board[1] == self.board[4] == self.board[7]:
-            winner = self.board[1]
-            self.game_has_ended = True
-        elif self.board[2] == self.board[5] == self.board[8]:
-            winner = self.board[2]
-            self.game_has_ended = True
-        else:
-            winner = None
-        return winner
-
-    def check_row(self):
-        if self.board[0] == self.board[1] == self.board[2]:
-            winner = self.board[0]
-            self.game_has_ended = True
-        elif self.board[3] == self.board[4] == self.board[5]:
-            winner = self.board[3]
-            self.game_has_ended = True
-        elif self.board[6] == self.board[7] == self.board[8]:
-            winner = self.board[6]
-            self.game_has_ended = True
-        else:
-            winner = None
-        return winner
-
-    def check_diagonal(self):
-        if self.board[0] == self.board[4] == self.board[8]:
-            winner = self.board[4]
-            self.game_has_ended = True
-        elif self.board[2] == self.board[4] == self.board[6]:
-            winner = self.board[4]
-            self.game_has_ended = True
-        else:
-            winner = None
-        return winner
-
     def check_winner(self):
-        winner = self.check_column()
-        if self.game_has_ended:
-            self.print_board()
-            print('winner is: ', winner)
-            return
+        winner = None
+        for (x,y,z) in self.winning_lines:
+            if self.board[x] == self.board[y] == self.board[z]:
+                winner = self.board[x]
+                self.game_has_ended = True
+                break
 
-        winner = self.check_row()
         if self.game_has_ended:
             self.print_board()
-            print('winner is: ', winner)
-            return
-
-        winner = self.check_diagonal()
-        if self.game_has_ended:
-            self.print_board()
-            print('winner is: ', winner)
-            return
+            print('Winner is: ', winner)
 
         return
 
