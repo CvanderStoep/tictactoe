@@ -45,3 +45,11 @@ class Board:
         else:
             self.current_player = 'X'
         return
+
+    def legal_moves(self):
+        list_of_legal_moves = []
+        for i in range(0,9):
+            if self.board[i] ==i:
+                list_of_legal_moves.append(i)
+        return list_of_legal_moves
+
