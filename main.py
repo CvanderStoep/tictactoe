@@ -1,5 +1,6 @@
 from board import Board
 from random_move import AI_move
+from find_best_move import find_best_move
 board = Board()
 
 
@@ -20,7 +21,10 @@ def play_move():
     # O = computer player
     else:
         # print('next move for O:')
-        move = AI_move(board)
+        # print('O: ', board.legal_moves())
+        # move = AI_move(board)
+        move = find_best_move(board)
+        print('best move: ', move)
         print('Move for O: ' + str(move))
         board.board[move] = board.current_player
     return
@@ -29,6 +33,7 @@ def play_move():
 # main program loop
 while not board.game_has_ended:
     board.print_board()
+    print('score= ', board.return_score())
     play_move()
     board.check_winner()
     if not board.game_has_ended:
@@ -37,6 +42,6 @@ while not board.game_has_ended:
         board.print_board()
     board.change_player()
 
-
+print('score= ', board.return_score())
 print('game ended.')
 input('key stroke')
