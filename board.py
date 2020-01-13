@@ -22,9 +22,10 @@ class Board:
             if self.board[i] == i:
                 self.game_draw = False
                 self.game_has_ended = False
-        if self.game_draw:
-            self.print_board()
-            print('(B)game has ended in a draw!')
+        # if self.game_draw:
+        #     pass
+        #     # self.print_board()
+        #     # print('(B)game has ended in a draw!')
         return
 
     def check_winner(self):
@@ -36,10 +37,10 @@ class Board:
                 self.game_has_ended = True
                 break
 
-        if self.game_has_ended:
-            self.print_board()
-            print('(B)Winner is: ', self.winner)
-
+        # if self.game_has_ended:
+        #     # self.print_board()
+        #     # print('(B)Winner is: ', self.winner)
+        #     pass
         return
 
     def change_player(self):

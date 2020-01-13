@@ -12,16 +12,16 @@ def find_best_move(board):
     return best_move
 
 
-def mini_max(board, depth, isMax):
+def mini_max(board, depth, isMaximizingPlayer):
     current_score = board.return_score()
     if current_score is not None:  # this means the game is ended (win/lose/draw)
         return current_score
-    if isMax:
+    if isMaximizingPlayer:
         best_value = -1000
         current_player = 'X'
         for move in board.legal_moves():
             board.board[move] = current_player
-            best_value = max(best_value, mini_max(board, depth+1, not isMax))
+            best_value = max(best_value, mini_max(board, depth + 1, not isMaximizingPlayer))
             board.board[move] = move  # undo the move
         return best_value
     else:
@@ -29,7 +29,7 @@ def mini_max(board, depth, isMax):
         current_player = 'O'
         for move in board.legal_moves():
             board.board[move] = current_player
-            best_value = min(best_value, mini_max(board, depth+1, not isMax))
+            best_value = min(best_value, mini_max(board, depth + 1, not isMaximizingPlayer))
             board.board[move] = move  # undo the move
         return best_value
 
