@@ -1,5 +1,6 @@
 class Board:
     board = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+    #TODO change below variables to methods
     game_has_ended = False
     game_draw = False
     current_player = 'X'
