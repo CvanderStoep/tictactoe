@@ -4,7 +4,9 @@ def find_best_move(board):
     for move in board.legal_moves():
         board.board[move] = board.current_player
         # current_score = board.return_score()
-        current_score = mini_max(board, 0, True)  # O has made the move, now evaluate X
+        depth = 0
+        maximizing_player = True
+        current_score = mini_max(board, depth, maximizing_player)  # O has made the move, now evaluate X
         if current_score is not None and current_score < best_value:
             best_move = move
             best_value = current_score

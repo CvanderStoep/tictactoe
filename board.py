@@ -2,7 +2,7 @@ class Board:
     board = [0, 1, 2, 3, 4, 5, 6, 7, 8]
     #TODO change below variables to methods
     game_has_ended = False
-    game_draw = False
+    # game_draw = False
     current_player = 'X'
     winner = None
 
@@ -18,16 +18,16 @@ class Board:
 
     def check_draw(self):
         self.game_has_ended = True
-        self.game_draw = True
+        game_draw = True
         for i in range(0, 9):
             if self.board[i] == i:
-                self.game_draw = False
+                game_draw = False
                 self.game_has_ended = False
         # if self.game_draw:
         #     pass
         #     # self.print_board()
         #     # print('(B)game has ended in a draw!')
-        return
+        return game_draw
 
     def check_winner(self):
         self.winner = None
@@ -69,8 +69,9 @@ class Board:
             else: #draw
                 score = 0
         else:  #draw
-            self.check_draw()
-            if self.game_draw:
+            # self.check_draw()
+            # if self.game_draw:
+            if self.check_draw():
                 score = 0
         return score
 

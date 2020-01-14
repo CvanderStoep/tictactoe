@@ -40,8 +40,9 @@ while not board.game_has_ended:
     if board.game_has_ended:
         print('Winner is: ', board.winner)
     else:
-        board.check_draw()
-        if board.game_draw:
+        # board.check_draw()
+        # if board.game_draw:
+        if board.check_draw():
             print('Game has ended in a draw!')
         else:
             board.change_player()
