@@ -13,11 +13,12 @@ class Board:
         return
 
     def check_draw(self):
-        game_draw = True
+        if self.check_winner() is not None:
+            return False
         for i in range(0, 9):
             if self.board[i] == i:
-                game_draw = False
-        return game_draw
+                return False
+        return True
 
     def check_winner(self):
         # returns the winner (X or O) or None otherwise
