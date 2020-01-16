@@ -1,5 +1,6 @@
 class Board:
-    board = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+    # board = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+    board = ['X', 'O', 2, 3, 'O', 5, 'O', 'X', 'X']
     current_player = 'X'
 
     winning_lines = [(0, 1, 2), (3, 4, 5), (6, 7, 8),
@@ -63,6 +64,16 @@ class Board:
                 score = 10
             elif winner == 'O':
                 score = -10
+            return score
         if self.check_draw():
             score = 0
         return score
+
+#
+# from find_best_move import find_best_move
+# print('Carlo')
+# board = Board()
+# print(board.check_draw())
+# print(board.check_winner())
+# print(board.return_score())
+# print(find_best_move(board))
