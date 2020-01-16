@@ -1,10 +1,6 @@
 class Board:
     board = [0, 1, 2, 3, 4, 5, 6, 7, 8]
-    #TODO change below variables to methods
-    game_has_ended = False
-    # game_draw = False
     current_player = 'X'
-    winner = None
 
     winning_lines = [(0, 1, 2), (3, 4, 5), (6, 7, 8),
                      (0, 3, 6), (1, 4, 7), (2, 5, 8),
@@ -17,32 +13,28 @@ class Board:
         return
 
     def check_draw(self):
-        self.game_has_ended = True
         game_draw = True
         for i in range(0, 9):
             if self.board[i] == i:
                 game_draw = False
-                self.game_has_ended = False
-        # if self.game_draw:
-        #     pass
-        #     # self.print_board()
-        #     # print('(B)game has ended in a draw!')
         return game_draw
 
     def check_winner(self):
-        self.winner = None
-        self.game_has_ended = False
+        # returns the winner (X or O) or None otherwise
+        winner = None
         for (x, y, z) in self.winning_lines:
             if self.board[x] == self.board[y] == self.board[z]:
-                self.winner = self.board[x]
-                self.game_has_ended = True
+                winner = self.board[x]
                 break
+        return winner
 
-        # if self.game_has_ended:
-        #     # self.print_board()
-        #     # print('(B)Winner is: ', self.winner)
-        #     pass
-        return
+    def game_has_ended(self):
+        # returns True if there is a winner OR there is a draw
+        winner = self.check_winner()
+        if winner is not None:
+            return True
+        return self.check_draw()
+        pass
 
     def change_player(self):
         if self.current_player == 'X':
@@ -59,19 +51,18 @@ class Board:
         return list_of_legal_moves
 
     def return_score(self):
+        #returns the score of the current state
+        #10 if X has won
+        #-10 if O has won
+        #0 if there is a draw
+        #None otherwise
         score = None
-        self.check_winner()
-        if self.game_has_ended:
-            if self.winner == 'X':
+        winner = self.check_winner()
+        if winner is not None:
+            if winner == 'X':
                 score = 10
-            elif self.winner == 'O':
+            elif winner == 'O':
                 score = -10
-            else: #draw
-                score = 0
-        else:  #draw
-            # self.check_draw()
-            # if self.game_draw:
-            if self.check_draw():
-                score = 0
+        if self.check_draw():
+            score = 0
         return score
-

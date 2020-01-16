@@ -32,16 +32,14 @@ def play_move():
 
 # main program loop
 board.print_board()
-while not board.game_has_ended:
+while not board.game_has_ended():
     print('score= ', board.return_score())
     play_move()
     board.print_board()
-    board.check_winner()
-    if board.game_has_ended:
-        print('Winner is: ', board.winner)
+    winner = board.check_winner()
+    if winner is not None:
+        print('Winner is: ', winner)
     else:
-        # board.check_draw()
-        # if board.game_draw:
         if board.check_draw():
             print('Game has ended in a draw!')
         else:

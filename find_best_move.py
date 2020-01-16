@@ -1,9 +1,9 @@
 def find_best_move(board):
+    # finds the best move for O (opponent; computer)
     best_value = +1000
     best_move = -1
     for move in board.legal_moves():
         board.board[move] = board.current_player
-        # current_score = board.return_score()
         depth = 0
         maximizing_player = True
         current_score = mini_max(board, depth, maximizing_player)  # O has made the move, now evaluate X
