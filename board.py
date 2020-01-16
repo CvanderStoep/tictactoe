@@ -69,12 +69,3 @@ class Board:
         if self.check_draw():
             score = 0
         return score
-
-#
-# from find_best_move import find_best_move
-# print('Carlo')
-# board = Board()
-# print(board.check_draw())
-# print(board.check_winner())
-# print(board.return_score())
-# print(find_best_move(board))
