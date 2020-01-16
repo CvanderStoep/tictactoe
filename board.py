@@ -1,6 +1,6 @@
 class Board:
-    # board = [0, 1, 2, 3, 4, 5, 6, 7, 8]
-    board = ['X', 'O', 2, 3, 'O', 5, 'O', 'X', 'X']
+    board = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+    # board = ['X', 'O', 2, 3, 'O', 5, 'O', 'X', 'X']
     current_player = 'X'
 
     winning_lines = [(0, 1, 2), (3, 4, 5), (6, 7, 8),
