@@ -36,11 +36,6 @@ def play_move():
 
 # main program loop
 board.print_board()
-board1.print_board()
-board.board[0] = 'X'
-
-board.print_board()
-board1.print_board()
 
 while not board.game_has_ended():
     print('score= ', board.return_score())

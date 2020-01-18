@@ -1,11 +1,12 @@
 class Board:
-    board = [0, 1, 2, 3, 4, 5, 6, 7, 8]
-    # board = ['X', 'O', 2, 3, 'O', 5, 'O', 'X', 'X']
-    current_player = 'X'
 
     winning_lines = [(0, 1, 2), (3, 4, 5), (6, 7, 8),
                      (0, 3, 6), (1, 4, 7), (2, 5, 8),
                      (0, 4, 8), (2, 4, 6)]
+
+    def __init__(self):
+        self.board = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+        self.current_player = 'X'
 
     def print_board(self):
         print(self.board[0], '|', self.board[1], '|', self.board[2])
@@ -53,11 +54,11 @@ class Board:
         return list_of_legal_moves
 
     def return_score(self):
-        #returns the score of the current state
-        #10 if X has won
-        #-10 if O has won
-        #0 if there is a draw
-        #None otherwise
+        # returns the score of the current state
+        # 10 if X has won
+        # -10 if O has won
+        # 0 if there is a draw
+        # None otherwise
         score = None
         winner = self.check_winner()
         if winner is not None:

@@ -7,7 +7,7 @@ board = Board()
 
 class MyTestCase(unittest.TestCase):
 
-    def test1_start(self):
+    def test_start(self):
         legal_moves = [0,1,2,3,4,5,6,7,8]
         self.assertEqual(board.legal_moves(),legal_moves)
 
@@ -15,9 +15,8 @@ class MyTestCase(unittest.TestCase):
         legal_moves = [1,2,3,4,5,6,7,8]
         self.assertEqual(board.legal_moves(),legal_moves)
 
-    def test2_last_move(self):
+    def test_last_move(self):
         board = Board()
-#        board = ['X', 'O', 2, 3, 'O', 5, 'O', 'X', 'X']
         # X O -
         # - O -
         # O X X
