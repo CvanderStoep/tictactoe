@@ -39,6 +39,24 @@ class MyTestCase(unittest.TestCase):
         best_move = 5
         self.assertEqual(find_best_move(board),best_move)
 
+    def test_depth(self):
+        board = Board()
+        # X X O           X X O
+        # - O -           - O -
+        # - - -           - X -
+        board.board[0] = 'X'
+        board.board[1] = 'X'
+        board.board[2] = 'O'
+        board.board[4] = 'O'
+
+        legal_moves = [3,5,6,7,8]
+        self.assertEqual(board.legal_moves(),legal_moves)
+
+        board.board[7] = 'X'
+        board.current_player = 'O'
+
+        best_move = 6 # best way to the shortest win
+        self.assertEqual(find_best_move(board),best_move)
 
 
 if __name__ == '__main__':
