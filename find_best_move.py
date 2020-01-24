@@ -17,6 +17,10 @@ def find_best_move(board):
 def mini_max(board, depth, isMaximizingPlayer):
     current_score = board.return_score()
     if current_score is not None:  # this means the game is ended (win/lose/draw)
+        if current_score == 10:
+            current_score -= depth
+        elif current_score == -10:
+            current_score += depth
         return current_score
     if isMaximizingPlayer:
         best_value = -1000
