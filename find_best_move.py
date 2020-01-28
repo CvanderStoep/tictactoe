@@ -2,7 +2,7 @@ number_of_minimax_calls = 0
 
 def find_best_move(board):
     # finds the best move for O (opponent; computer)
-    #include alpha-beta-pruning
+    #included alpha-beta-pruning
     best_value = +1000
     best_move = -1
     alpha = -1000
