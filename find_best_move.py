@@ -1,4 +1,4 @@
-number_of_minimax_calls = 0
+# number_of_minimax_calls = 0
 
 def find_best_move(board):
     # finds the best move for O (opponent; computer)
@@ -20,9 +20,9 @@ def find_best_move(board):
 
 
 def mini_max(board, depth, isMaximizingPlayer, alpha, beta):
-    global number_of_minimax_calls
-    number_of_minimax_calls +=1
-    print("nc= ", number_of_minimax_calls)
+    # global number_of_minimax_calls
+    # number_of_minimax_calls +=1
+    # print("nc= ", number_of_minimax_calls)
     current_score = board.return_score()
     if current_score is not None:  # this means the game is ended (win/lose/draw)
         if current_score == 10:
