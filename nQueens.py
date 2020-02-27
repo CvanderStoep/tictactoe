@@ -3,8 +3,8 @@ Queens = [None] * NQueens
 
 
 def possible(x, y):
-    for i in range(0, x):  # check rows
-        if Queens[i] == y:
+    for i in range(0, x):
+        if Queens[i] == y: # check rows
             return False
         if abs(y - Queens[i]) == abs(x - i):  # check diagonals
             return False
