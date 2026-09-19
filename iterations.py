@@ -18,9 +18,3 @@ piece = 100
 for i in range(1, 100):
     print(i, i * piece / 100)
     piece = piece - i * piece / 100
-#
-# print(list(lettercombinations))
-# print(list(letterpermutations))
-
-# for num in counter:
-#     print(num)
